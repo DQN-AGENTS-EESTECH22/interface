@@ -3,6 +3,7 @@ import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
 import chroma from "chroma-js";
 import Palette from "../components/Palette";
+import Exemplos from "../components/Exemplos";
 
 
 function GeneratePaletteText(props) {
@@ -33,14 +34,14 @@ function GeneratePaletteText(props) {
         <>
             <h2>Generate Palette - Text <img alt={"Restart"} onClick={() => setText('')} className={'restartImage'} src={restart}/>
             </h2>
-            <div>
+            <div className="pb-5">
                 <input value={text} type={'text'} className={'inputText'} placeholder={'Digite sua busca...'} onChange={evt => setText(evt.target.value)} />
                 <button className={'inputButton'} onClick={submit}>Gerar</button>
             </div>
             {colors.length > 0 &&
             <>
-                <h2>Palette</h2>
                 <Palette colors={colors}/>
+                <Exemplos/>
             </>
             }
         </>

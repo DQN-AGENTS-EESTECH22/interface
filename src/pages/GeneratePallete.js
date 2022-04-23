@@ -2,6 +2,7 @@ import Dropzone from "../components/Dropzone";
 import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
 import Palette from "../components/Palette";
+import Exemplos from "../components/Exemplos";
 
 function GeneratePalette(props) {
     const [files, setFiles] = useState([]);
@@ -40,8 +41,8 @@ function GeneratePalette(props) {
             <Dropzone files={files} setFiles={setFiles}/>
             {Object.keys(colors).length > 0 &&
             <>
-                <h2>Palette</h2>
                 <Palette colors={colors}/>
+                <Exemplos/>
             </>
             }
         </>

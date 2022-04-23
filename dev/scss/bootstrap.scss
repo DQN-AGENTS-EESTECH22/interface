@@ -1,2 +1,11 @@
 @import 'variables';
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$theme-colors: (
+  "primary": $primary,  
+  "secondary": $secondary,
+  "tertiary": $third,
+  "quarternary": $fourth,
+  "quinary": $fifth,
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
