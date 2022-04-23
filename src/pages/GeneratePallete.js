@@ -41,8 +41,9 @@ function GeneratePalette(props) {
             <Dropzone files={files} setFiles={setFiles}/>
             {Object.keys(colors).length > 0 &&
             <>
+            <Exemplos/>
                 <Palette colors={colors}/>
-                <Exemplos/>
+                
             </>
             }
         </>

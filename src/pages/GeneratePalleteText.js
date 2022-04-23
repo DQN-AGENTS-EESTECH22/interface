@@ -40,8 +40,9 @@ function GeneratePaletteText(props) {
             </div>
             {colors.length > 0 &&
             <>
+            <Exemplos/>
                 <Palette colors={colors}/>
-                <Exemplos/>
+                
             </>
             }
         </>
