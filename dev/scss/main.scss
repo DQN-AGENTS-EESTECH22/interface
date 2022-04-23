@@ -11,11 +11,10 @@ nav {
     padding: 0;
     display: flex;
     border-bottom: 2px solid white;
-    margin: 0 0 4em;
+    justify-content: space-around;
 
     li {
       padding: 1.6em 0;
-      margin-right: 3em;
       font-size: 2em;
 
       a {

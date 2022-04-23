@@ -7,7 +7,7 @@ function Layout(props) {
                 <Nav active={props.active}>
                     <item label={"Generate Palette - Image"} link={"/"}/>
                     <item label={"Generate Palette - Text"} link={"/text"}/>
-                    <item label={"Previewer"} link={"/previewer"}/>
+                    {/* <item label={"Previewer"} link={"/previewer"}/> */}
                 </Nav>
 
             </header>
