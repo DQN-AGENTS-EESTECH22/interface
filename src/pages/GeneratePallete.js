@@ -9,7 +9,7 @@ function GeneratePallete(props) {
         if (files.length > 0) {
             let data = new FormData()
             data.append('images', files[0]) // maybe it should be '{target}_cand'
-            let url = "https://tongsampah.herokuapp.com"
+            let url = "https://tongsampah.herokuapp.com/model"
             fetch(url, {
                 method: "POST",
                 body: data,
