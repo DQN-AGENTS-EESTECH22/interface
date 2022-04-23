@@ -19,7 +19,7 @@ function GeneratePaletteText(props) {
                 return response.json()
             })
             .then(function (res) {
-                setColors(chroma.scale([res[0], chroma.random()]).colors(5))
+                setColors(chroma.scale([res[0], res[1]]).colors(5))
             })
         
     }
