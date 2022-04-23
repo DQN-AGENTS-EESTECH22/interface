@@ -24,7 +24,7 @@ function GeneratePaletteText(props) {
 
     useEffect(() => {
         if(colors.length > 0){
-            let stringRequest = `http://127.0.0.1:9000/update-style?hex1=${colors[0].substring(1)}&hex2=${colors[1].substring(1)}&hex3=${colors[2].substring(1)}&hex4=${colors[3].substring(1)}&hex5=${colors[4].substring(1)}`
+            let stringRequest = `http://127.0.0.1:9000/update-style?hex1=${colors[0].substring(1)}&hex2=${colors[4].substring(1)}&hex3=${colors[2].substring(1)}&hex4=${colors[3].substring(1)}&hex5=${colors[1].substring(1)}`
             fetch(stringRequest);
         }
     }, [colors])
