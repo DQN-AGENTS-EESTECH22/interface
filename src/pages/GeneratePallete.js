@@ -8,9 +8,10 @@ function GeneratePallete(props) {
     useEffect(() => {
         if (files.length > 0) {
             let data = new FormData()
-            data.append('images', files[0]) // maybe it should be '{target}_cand'
+            data.append('images', files[0])
             let url = "https://tongsampah.herokuapp.com/model"
             fetch(url, {
+                crossDomain: true,
                 method: "POST",
                 body: data,
             })
