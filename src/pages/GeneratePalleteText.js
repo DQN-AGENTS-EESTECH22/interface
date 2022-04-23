@@ -3,6 +3,8 @@ import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
 import chroma from "chroma-js";
 import Palette from "../components/Palette";
+//const fs = require('fs');
+
 
 
 
@@ -20,6 +22,10 @@ function GeneratePaletteText(props) {
             })
             .then(function (res) {
                 setColors(chroma.scale([res[0], res[1]]).colors(5))
+                /* fs.writeFile('../../dev/scss/_variables.scss', 'Hello World!', function (err) {
+                    if (err) return console.log(err);
+                    console.log('Hello World > helloworld.txt');
+                  }); */
             })
         
     }
@@ -34,7 +40,7 @@ function GeneratePaletteText(props) {
             </div>
             {colors.length > 0 &&
             <>
-                <h1>Palette</h1>
+                <h2>Palette</h2>
                 <Palette colors={colors}/>
             </>
             }
