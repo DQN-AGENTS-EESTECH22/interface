@@ -1,6 +1,6 @@
 function Palette(props){
     return (
-    <div className="bg-white p-4">
+    <div className="bg-white p-4 mt-5">
             <h2 className="d-block">Palette</h2>
             <div className={'colors'}>
                 {
