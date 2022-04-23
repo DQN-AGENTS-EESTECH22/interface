@@ -74,3 +74,14 @@ nav {
   width: 20px;
   cursor: pointer;
 }
+
+.colors{
+  width: 100%;
+  display: flex;
+  margin-bottom: 4em;
+  .item{
+    width: 20%;
+    height: 400px;
+    background: yellow;
+  }
+}
