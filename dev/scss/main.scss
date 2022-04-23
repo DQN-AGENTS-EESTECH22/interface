@@ -1,3 +1,44 @@
 @import 'variables';
-@import 'custom';
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+body{
+  background: $primary;
+  color: $secondary;
+}
+
+nav{
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    li{
+      padding: 1.6em 0;
+      margin-right: 3em;
+      font-size: 2em;
+      a{
+        color: $secondary;
+        text-decoration: none;
+        font-weight: bold;
+        margin-right: 1em;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 3px;
+          background: $secondary;
+          transition: width .3s;
+        }
+
+        &:hover::after, &.active::after {
+          width: 100%;
+        }
+
+        &:hover{
+          color: $secondary;
+
+        }
+      }
+    }
+  }
+}

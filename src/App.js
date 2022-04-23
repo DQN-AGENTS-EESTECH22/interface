@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import './bootstrap.min.css';
 import './main.min.css';
+import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import GeneratePallete from "./pages/GeneratePallete";
+import Previewer from "./pages/Previewer";
+import Layout from "./components/Layout";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact>
+                    <Layout active={'Generate Pallete'}>
+                        <GeneratePallete/>
+                    </Layout>
+                </Route>
+                <Route path="/previewer" exact>
+                    <Layout active={'Previewer'}>
+                        <Previewer/>
+                    </Layout>
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;

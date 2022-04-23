@@ -16,12 +16,26 @@ function scss() {
         .pipe(gulp.dest("src/"))
 }
 
+function bootstrap() {
+    return gulp.src("dev/scss/bootstrap.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(rename('bootstrap.min.css'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest("src/"))
+}
+
 function watch() {
-    gulp.watch("dev/scss/*.scss", gulp.series('scss'));
+    gulp.watch(["dev/scss/main.scss", "dev/scss/_variables.scss"], gulp.series('scss'));
+    gulp.watch(["dev/scss/_variables.scss"], gulp.series('bootstrap'));
 }
 
 exports.scss = scss;
+exports.bootstrap = bootstrap;
 exports.watch = watch;
 
-gulp.task('default', gulp.series(scss, watch));
-gulp.task('build', gulp.series(watch));
+gulp.task('default', gulp.series(scss, bootstrap, watch));
+gulp.task('build', gulp.series(scss, bootstrap));
