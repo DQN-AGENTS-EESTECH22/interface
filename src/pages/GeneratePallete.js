@@ -1,27 +1,26 @@
 import Dropzone from "../components/Dropzone";
 import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
-const { exec } = require('child_process');
 
 function GeneratePallete(props) {
     const [files, setFiles] = useState([]);
     const [colors, setColors] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
     useEffect(() => {
-        //const pythonProcess = spawn('python', ["../img_rbg.py", '../minion.jpeg']);
-        exec('python ../img_rbg.py ../minion.jpeg', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`error: ${error.message}`);
-                return;
-            }
-
-            if (stderr) {
-                console.error(`stderr: ${stderr}`);
-                return;
-            }
-
-            console.log(`stdout:\n${stdout}`);
-        });
         if (files.length > 0) {
+            let data = new FormData()
+            data.append('images', files[0]) // maybe it should be '{target}_cand'
+            let url = "http://127.0.0.1:9000/model"
+            fetch(url, {
+                method: "POST",
+                body: data,
+            })
+                .then(function (response) {
+                    return response.json()
+                })
+                .then(function (res) {
+                    console.log('success')
+                    console.log(res)
+                })
             setColors([
                 [40, 40, 40],
                 [128, 28, 90],
