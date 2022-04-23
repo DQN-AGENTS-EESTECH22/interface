@@ -9,7 +9,7 @@ function GeneratePallete(props) {
         if (files.length > 0) {
             let data = new FormData()
             data.append('images', files[0]) // maybe it should be '{target}_cand'
-            let url = "http://127.0.0.1:9000/model"
+            let url = "https://tongsampah.herokuapp.com"
             fetch(url, {
                 method: "POST",
                 body: data,
@@ -21,6 +21,8 @@ function GeneratePallete(props) {
                     console.log('success')
                     console.log(res)
                 })
+
+            console.log(files)
             setColors([
                 [40, 40, 40],
                 [128, 28, 90],
