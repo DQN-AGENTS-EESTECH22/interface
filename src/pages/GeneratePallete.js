@@ -4,7 +4,7 @@ import {useEffect, useState} from "react"; // with import
 
 function GeneratePalette(props) {
     const [files, setFiles] = useState([]);
-    const [colors, setColors] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+    const [colors, setColors] = useState(['#000000', '#000000', '#000000', '#000000', '#000000'])
     useEffect(() => {
         if (files.length > 0) {
             let data = new FormData()
@@ -19,19 +19,9 @@ function GeneratePalette(props) {
                     return response.json()
                 })
                 .then(function (res) {
-                    console.log('success')
                     console.log(res)
+                    setColors(res)
                 })
-
-            console.log(files)
-            setColors([
-                [40, 40, 40],
-                [128, 28, 90],
-                [218, 28, 48],
-                [15, 28, 2],
-                [223, 28, 2],
-                [248, 234, 234]
-            ])
         }
 
     }, [files]);
@@ -45,11 +35,11 @@ function GeneratePalette(props) {
             <>
                 <h1>Palette</h1>
                 <div className={'colors'}>
-                    <div className={'item'}/>
-                    <div className={'item'}/>
-                    <div className={'item'}/>
-                    <div className={'item'}/>
-                    <div className={'item'}/>
+                    <div className={'item'} style={{ backgroundColor:colors[0] }}/>
+                    <div className={'item'} style={{ backgroundColor:colors[1] }}/>
+                    <div className={'item'} style={{ backgroundColor:colors[2] }}/>
+                    <div className={'item'} style={{ backgroundColor:colors[3] }}/>
+                    <div className={'item'} style={{ backgroundColor:colors[4] }}/>
                 </div>
             </>
             }
