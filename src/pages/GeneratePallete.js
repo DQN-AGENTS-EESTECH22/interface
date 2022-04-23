@@ -9,7 +9,7 @@ function GeneratePallete(props) {
         if (files.length > 0) {
             let data = new FormData()
             data.append('images', files[0])
-            let url = "https://tongsampah.herokuapp.com/model"
+            let url = "http://127.0.0.1:9000/model"
             fetch(url, {
                 crossDomain: true,
                 method: "POST",
