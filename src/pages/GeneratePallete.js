@@ -1,10 +1,11 @@
 import Dropzone from "../components/Dropzone";
 import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
+import Palette from "../components/Palette";
 
 function GeneratePalette(props) {
     const [files, setFiles] = useState([]);
-    const [colors, setColors] = useState(['#000000', '#000000', '#000000', '#000000', '#000000'])
+    const [colors, setColors] = useState([])
     useEffect(() => {
         if (files.length > 0) {
             let data = new FormData()
@@ -28,19 +29,13 @@ function GeneratePalette(props) {
 
     return (
         <>
-            <h1>Generate Palette - Image <img alt={"Restart"} onClick={() => setFiles([])} className={'restartImage'} src={restart}/>
-            </h1>
+            <h2>Generate Palette - Image <img alt={"Restart"} onClick={() => setFiles([])} className={'restartImage'} src={restart}/>
+            </h2>
             <Dropzone files={files} setFiles={setFiles}/>
-            {files.length > 0 &&
+            {Object.keys(colors).length > 0 &&
             <>
                 <h1>Palette</h1>
-                <div className={'colors'}>
-                    <div className={'item'} style={{ backgroundColor:colors[0] }}/>
-                    <div className={'item'} style={{ backgroundColor:colors[1] }}/>
-                    <div className={'item'} style={{ backgroundColor:colors[2] }}/>
-                    <div className={'item'} style={{ backgroundColor:colors[3] }}/>
-                    <div className={'item'} style={{ backgroundColor:colors[4] }}/>
-                </div>
+                <Palette colors={colors}/>
             </>
             }
         </>
