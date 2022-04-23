@@ -5,7 +5,8 @@ function Layout(props) {
         <main className={"container"}>
             <header>
                 <Nav active={props.active}>
-                    <item label={"Generate Pallete"} link={"/"}/>
+                    <item label={"Generate Palette - Image"} link={"/"}/>
+                    <item label={"Generate Palette - Text"} link={"/text"}/>
                     <item label={"Previewer"} link={"/previewer"}/>
                 </Nav>
 

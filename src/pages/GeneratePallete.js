@@ -2,7 +2,7 @@ import Dropzone from "../components/Dropzone";
 import restart from '../restart.png';
 import {useEffect, useState} from "react"; // with import
 
-function GeneratePallete(props) {
+function GeneratePalette(props) {
     const [files, setFiles] = useState([]);
     const [colors, setColors] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
     useEffect(() => {
@@ -38,12 +38,12 @@ function GeneratePallete(props) {
 
     return (
         <>
-            <h1>Generate Pallete <img alt={"Restart"} onClick={() => setFiles([])} className={'restartImage'} src={restart}/>
+            <h1>Generate Palette - Image <img alt={"Restart"} onClick={() => setFiles([])} className={'restartImage'} src={restart}/>
             </h1>
             <Dropzone files={files} setFiles={setFiles}/>
             {files.length > 0 &&
             <>
-                <h1>Pallete</h1>
+                <h1>Palette</h1>
                 <div className={'colors'}>
                     <div className={'item'}/>
                     <div className={'item'}/>
@@ -58,4 +58,4 @@ function GeneratePallete(props) {
     )
 }
 
-export default GeneratePallete
+export default GeneratePalette
