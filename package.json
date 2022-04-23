@@ -47,9 +47,7 @@
   },
   "devDependencies": {
     "chroma-js": "^2.4.2",
+    "fs": "^0.0.1-security",
     "gulp-rename": "^2.0.0"
-  },
-  "browser": {
-    "child_process": false
   }
 }
