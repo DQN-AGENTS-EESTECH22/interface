@@ -8,7 +8,7 @@ function GeneratePallete(props) {
     const [colors, setColors] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
     useEffect(() => {
         //const pythonProcess = spawn('python', ["../img_rbg.py", '../minion.jpeg']);
-        exec('ls', (error, stdout, stderr) => {
+        exec('python ../img_rbg.py ../minion.jpeg', (error, stdout, stderr) => {
             if (error) {
                 console.error(`error: ${error.message}`);
                 return;
@@ -21,19 +21,6 @@ function GeneratePallete(props) {
 
             console.log(`stdout:\n${stdout}`);
         });
-        // exec('python ../img_rbg.py ../minion.jpeg', (error, stdout, stderr) => {
-        //     if (error) {
-        //         console.error(`error: ${error.message}`);
-        //         return;
-        //     }
-        //
-        //     if (stderr) {
-        //         console.error(`stderr: ${stderr}`);
-        //         return;
-        //     }
-        //
-        //     console.log(`stdout:\n${stdout}`);
-        // });
         if (files.length > 0) {
             setColors([
                 [40, 40, 40],
