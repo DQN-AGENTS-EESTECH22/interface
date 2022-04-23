@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "chroma-js": "^2.4.2",
     "gulp-rename": "^2.0.0"
   },
   "browser": {
