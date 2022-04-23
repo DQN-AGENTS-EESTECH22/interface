@@ -40,6 +40,7 @@ function Dropzone(props) {
         <div style={thumb} key={file.name}>
             <div style={thumbInner}>
                 <img
+                    alt={file.name}
                     src={file.preview}
                     className={"imageThumb"}
                 />

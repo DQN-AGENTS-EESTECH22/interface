@@ -10,9 +10,9 @@ function Layout(props) {
                 </Nav>
 
             </header>
-            <page>
+            <div>
                 {props.children}
-            </page>
+            </div>
         </main>
     )
 }

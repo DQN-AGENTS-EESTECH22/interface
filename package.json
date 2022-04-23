@@ -44,5 +44,8 @@
   },
   "devDependencies": {
     "gulp-rename": "^2.0.0"
+  },
+  "browser": {
+    "child_process": false
   }
 }

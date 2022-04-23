@@ -5,7 +5,7 @@ function Nav(props) {
                 {
                     props.children.map((child) => {
                         return (
-                            <li>
+                            <li key={child.props.label}>
                                 <a className={props.active === child.props.label ? 'active' : ''} href={child.props.link}>{child.props.label}</a>
                             </li>
                         );

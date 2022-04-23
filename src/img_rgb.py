@@ -40,7 +40,7 @@ def pallete(path, n_clusters=5):
     for i,x in enumerate(rgb):
         dic[str(i)] = x
     print(dic)
-    return dic
+    sys.stdout.flush()
 
 if __name__ == "__main__":
     pallete(str(sys.argv[1]))

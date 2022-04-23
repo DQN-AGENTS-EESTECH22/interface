@@ -1,27 +1,39 @@
 import Dropzone from "../components/Dropzone";
-import restart from '../restart.png'; // with import
-import {useEffect, useState} from "react";
-
-const {spawn} = require('child_process');
+import restart from '../restart.png';
+import {useEffect, useState} from "react"; // with import
+const { exec } = require('child_process');
 
 function GeneratePallete(props) {
     const [files, setFiles] = useState([]);
     const [colors, setColors] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-
     useEffect(() => {
-        const python = spawn('python', ['../img_rgb.py', '../minion.jpeg']);
-        // collect data from script
-        python.stdout.on('data', function (data) {
-            console.log('Pipe data from python script ...');
-            let dataToSend = data.toString();
-            console.log(dataToSend)
+        //const pythonProcess = spawn('python', ["../img_rbg.py", '../minion.jpeg']);
+        exec('ls', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`error: ${error.message}`);
+                return;
+            }
+
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                return;
+            }
+
+            console.log(`stdout:\n${stdout}`);
         });
-        // in close event we are sure that stream from child process is closed
-        python.on('close', (code) => {
-            console.log(`child process close all stdio with code ${code}`);
-            // send data to browser
-            res.send(dataToSend)
-        });
+        // exec('python ../img_rbg.py ../minion.jpeg', (error, stdout, stderr) => {
+        //     if (error) {
+        //         console.error(`error: ${error.message}`);
+        //         return;
+        //     }
+        //
+        //     if (stderr) {
+        //         console.error(`stderr: ${stderr}`);
+        //         return;
+        //     }
+        //
+        //     console.log(`stdout:\n${stdout}`);
+        // });
         if (files.length > 0) {
             setColors([
                 [40, 40, 40],
@@ -37,7 +49,8 @@ function GeneratePallete(props) {
 
     return (
         <>
-            <h1>Generate Pallete <img onClick={() => setFiles([])} className={'restartImage'} src={restart}/></h1>
+            <h1>Generate Pallete <img alt={"Restart"} onClick={() => setFiles([])} className={'restartImage'} src={restart}/>
+            </h1>
             <Dropzone files={files} setFiles={setFiles}/>
             {files.length > 0 &&
             <>
